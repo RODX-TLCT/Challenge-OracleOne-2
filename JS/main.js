@@ -1,7 +1,9 @@
 // definiendo variables y trayendo datos del html
 
-var buttonAdd = document.querySelector("#buttonAddWords");
-var buttonAddleter = document.querySelector("#buttonAddleter");
+var buttonAdd = document.querySelector(".buttonAddleter").addEventListener("click",() => {
+    alert (1)
+});
+
 
 /*
 var textAddword = document.querySelector("#inputAdd");
@@ -14,12 +16,3 @@ let words = { AddedWords, preterminedWords };
 
 // capturar click botones
 
-buttonAdd.addEventListener('click', function(event) {
-    event.preventDefault();
-    console.log('click buttonAdd');
-});
-
-buttonAddLeter.addEventListener('click', function(event) {
-    event.preventDefault();
-    console.log('click buttonAdd');
-});
