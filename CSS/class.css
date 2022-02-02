@@ -11,8 +11,7 @@
 /*estructura*/
 
 .container {
-    width: 90%;
-    max-width: 1300;
+    width: auto;
     margin: auto;
     /*flex*/
     display: -ms-flexbox;
@@ -24,7 +23,7 @@
 }
 
 header {
-    width: 100% !important;
+    width: 100%;
     background-color: rgba(218, 165, 32, 50);
     /*flex*/
     display: flex;
@@ -54,6 +53,14 @@ header nav a {
 
 header nav a:hover {
     background-color: rgb(39, 38, 38);
+}
+
+.element {
+    /*flex*/
+    display: flex;
+    align-items: center;
+    flex-flow: column wrap;
+    justify-content: center;
 }
 
 footer {
@@ -98,18 +105,24 @@ button {
 
 h1 {
     font-family: 'Bebas Neue', cursive;
-    font-size: 30pt;
+    font-size: 50pt;
     text-align: center;
 }
 
 h2 {
-    font-family: 'Bebas Neue', cursive;
-    font-size: 50pt;
+    font-family: 'roboto', sans-serif;
+    font-size: 40pt;
     text-align: center;
 }
 
 p {
     font-family: 'roboto', sans-serif;
-    font-size: 35pt;
+    font-size: 12pt;
+    text-align: center;
+}
+
+li {
+    font-family: 'roboto', sans-serif;
+    font-size: 12pt;
     text-align: center;
 }
