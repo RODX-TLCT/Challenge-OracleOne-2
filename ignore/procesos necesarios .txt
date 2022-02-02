@@ -1,0 +1,7 @@
+array de palabras 
+
+fucion para agregar nuevas palabras
+
+fuciona para dibujar el ahorcado
+
+funcion para los giones 

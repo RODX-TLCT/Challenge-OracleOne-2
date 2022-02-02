@@ -1,0 +1,115 @@
+/*quitar margin y padding de todos los elementos*/
+
+* {
+    box-sizing: content-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+
+/*estructura*/
+
+.container {
+    width: 90%;
+    max-width: 1300;
+    margin: auto;
+    /*flex*/
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+header {
+    width: 100% !important;
+    background-color: rgba(218, 165, 32, 50);
+    /*flex*/
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+header nav {
+    width: 100%;
+    /*flex*/
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+header nav a {
+    background-color: black;
+    color: azure;
+    text-align: center;
+    padding: 10px;
+    font-family: 'roboto', sans-serif;
+    font-size: 10pt;
+    /*flex*/
+    flex-grow: 1;
+}
+
+header nav a:hover {
+    background-color: rgb(39, 38, 38);
+}
+
+footer {
+    background-color: goldenrod;
+    width: auto;
+    height: 20px;
+    text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: azure;
+}
+
+footer img {
+    width: 10pt;
+}
+
+
+/*items y botones*/
+
+input {
+    border: 2pt solid black;
+    border-radius: 30pt;
+    width: 450px;
+    height: 35px;
+    text-align: center;
+    color: rgb(3, 24, 1);
+    font-family: 'roboto', sans-serif;
+}
+
+button {
+    border: 2pt solid black;
+    border-radius: 30pt;
+    font-family: 'roboto', sans-serif;
+    width: 120px;
+    height: 35px;
+}
+
+
+/*text*/
+
+h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 30pt;
+    text-align: center;
+}
+
+h2 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 50pt;
+    text-align: center;
+}
+
+p {
+    font-family: 'roboto', sans-serif;
+    font-size: 35pt;
+    text-align: center;
+}
