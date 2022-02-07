@@ -20,8 +20,8 @@ var buttonStart = document.querySelector(".buttonStart").addEventListener("click
     event.preventDefault();
     console.log("click Start");
     //definiendo la palabra al azar
-    hideWord();
-    console.log(hideWords);
+    var hideWord = preterminedWords[Math.floor(Math.random()*preterminedWords.length)];
+    console.log(hideWord);
 });
 
 
@@ -39,12 +39,6 @@ let AddedWords = [];
 let preterminedWords = ['javascript', 'html', 'css', 'sublime-text', 'visual-studio', 'variable', 'pagina-web', 'programacion', 'logica', 'oracle-one', 'alura', 'trello']
 let text ="";
 let lifes = 5;
-
-//definiendo palabra oculta
-function hideWord(hidewords) {
-  hidewords = preterminedWords[Math.floor(Math.random()*preterminedWords.length)];
-  return hidewords;
-}
 
 // definiendo acciones segun intentos restantes 
 if (lifes == 7) {
@@ -76,7 +70,7 @@ if (lifes == 1) {
 }
 
 if (lifes == 0) {
-  alert ("La palabra era: " + hideWords)
+  document.getElementById("vida").innerText = "La palabra era: " + hideWord.toLocaleUpperCase();
   vidaCero();
 }
 
