@@ -15,39 +15,45 @@ var buttonAddleter = document.querySelector(".buttonAddleter").addEventListener(
     console.log("click addleter");
 });
 
+// definiendo accion boton jugar
 var buttonStart = document.querySelector(".buttonStart").addEventListener("click",(event) => {
     event.preventDefault();
     console.log("click Start");
+    //definiendo la palabra al azar
+    hideWord();
+    console.log(hideWords);
 });
 
 
+// agregar nuevas palabras
+function addNewWords(AddWordsForm) {
+    let text = AddWordsForm.input.value.toUpperCase();
+    text = text.replace(new RegExp("[àáâãäå\\sæçèéêëìíîïñòóôõöœùúûüýÿ\\W1234567890]", 'g'),"");
+    preterminedWords.push(text);
+    console.log(text);
+    console.log(preterminedWords);
+  }
+ 
 // definiendo variables
 let AddedWords = [];
 let preterminedWords = ['javascript', 'html', 'css', 'sublime-text', 'visual-studio', 'variable', 'pagina-web', 'programacion', 'logica', 'oracle-one', 'alura', 'trello']
-let words = { AddedWords, preterminedWords };
-let text
-let lifes = 1
+let text ="";
+let lifes = 5;
 
-// agregar nuevas palabras
-function addNewWords(AddWordsForm) {
-    text = AddWordsForm.input.value.toUpperCase();
-    text = text.replace(new RegExp("[àáâãäå\\sæçèéêëìíîïñòóôõöœùúûüýÿ\\W1234567890]", 'g'),"");
-
-    //document.getElementById("inputExit").value = text.toLowerCase();
-    console.log(text);
+//definiendo palabra oculta
+function hideWord(hidewords) {
+  hidewords = preterminedWords[Math.floor(Math.random()*preterminedWords.length)];
+  return hidewords;
 }
 
-
-
+// definiendo acciones segun intentos restantes 
 if (lifes == 7) {
   vidaSiete();
 }
   
-
 if (lifes == 6) {
   vidaSeis();
 }
-
 
 if (lifes == 5) {
   vidaCinco();
@@ -70,11 +76,10 @@ if (lifes == 1) {
 }
 
 if (lifes == 0) {
-  console.log(palabraOculta);
-  document.getElementById("vida").innerText = "La palabra era: " + palabraOculta.toLocaleUpperCase();
+  alert ("La palabra era: " + hideWords)
   vidaCero();
 }
 
-palabraUsuario = nuevaPalabra;
-document.getElementById("frase").innerHTML = palabraUsuario;
+//alabraUsuario = nuevaPalabra;
+//document.getElementById("frase").innerHTML = palabraUsuario;
 
