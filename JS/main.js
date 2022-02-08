@@ -3,6 +3,16 @@ var AddWordsForm = document.querySelector(".newWordForm");
 
 var inputAddLeter = document.querySelector("#InputAddleter");
 
+// definiendo variables
+let AddedWords = [];
+let preterminedWords = ['javascript', 'html', 'css', 'sublime-text', 'visual-studio', 'variable', 'pagina-web', 'programacion', 'logica', 'oracle-one', 'alura', 'trello']
+let text ="";
+let lifes = 5;
+
+var hideWord = preterminedWords[Math.floor(Math.random()*preterminedWords.length)];
+console.log(hideWord);
+
+
 // capturar click botones
 var buttonAdd = document.querySelector(".buttonAdd").addEventListener("click",(event) => {
     event.preventDefault();
@@ -19,11 +29,11 @@ var buttonAddleter = document.querySelector(".buttonAddleter").addEventListener(
 var buttonStart = document.querySelector(".buttonStart").addEventListener("click",(event) => {
     event.preventDefault();
     console.log("click Start");
+    hideWord = preterminedWords[Math.floor(Math.random()*preterminedWords.length)]; 
+    console.log(hideWord);  
     //definiendo la palabra al azar
-    var hideWord = preterminedWords[Math.floor(Math.random()*preterminedWords.length)];
-    console.log(hideWord);
-});
 
+});
 
 // agregar nuevas palabras
 function addNewWords(AddWordsForm) {
@@ -34,11 +44,6 @@ function addNewWords(AddWordsForm) {
     console.log(preterminedWords);
   }
  
-// definiendo variables
-let AddedWords = [];
-let preterminedWords = ['javascript', 'html', 'css', 'sublime-text', 'visual-studio', 'variable', 'pagina-web', 'programacion', 'logica', 'oracle-one', 'alura', 'trello']
-let text ="";
-let lifes = 5;
 
 // definiendo acciones segun intentos restantes 
 if (lifes == 7) {
@@ -69,8 +74,8 @@ if (lifes == 1) {
   vidaUno();
 }
 
-if (lifes == 0) {
-  document.getElementById("vida").innerText = "La palabra era: " + hideWord.toLocaleUpperCase();
+if (lifes == 0 ) {
+  console.log ("La palabre era : " + hideWord);
   vidaCero();
 }
 
