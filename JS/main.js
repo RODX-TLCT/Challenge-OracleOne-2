@@ -1,5 +1,3 @@
-//funcion remplazo
-//String.prototype.replaceAt=function(index, character) { return this.substr(0, index) + character + this.substr(index+character.length); } 
 
 // definiendo variables
 let AddedWords = [];
@@ -22,14 +20,24 @@ let underscores = hideWord.replace(/./g,"_ ");
 
 // captura click y accion del boton agregar 
 var buttonAdd = document.querySelector(".buttonAdd").addEventListener("click",(event) => {
-    //event.preventDefault();
+    event.preventDefault();
     console.log("Click addWord");
     addNewWords(AddWordsForm);
 });
 
+// definiendo accion boton jugar
+var buttonStart = document.querySelector(".buttonStart").addEventListener("click",(event) => {
+  event.preventDefault();
+  console.log("click Start");
+  hideWord = preterminedWords[Math.floor(Math.random()*preterminedWords.length)]; 
+  console.log(hideWord);
+  //remplazo letras por guiones en palabra oculta luego de click en boton start
+  underscores = hideWord.replace(/./g,"_ ");  
+});
+
 // captura click y accion del boton comprobar letra
 var buttonAddleter = document.querySelector(".buttonAddleter").addEventListener("click",(event) => {
-    //event.preventDefault()
+    event.preventDefault()
     console.log("click addleter");
     //captura de letra y conversion a mayuscula
     let leter = document.querySelector('.InputAddleter ').value.toUpperCase();
@@ -85,26 +93,6 @@ var buttonAddleter = document.querySelector(".buttonAddleter").addEventListener(
       console.log ("La palabre era : " + hideWord);
       vidaCero();
     }
-
-    
-    //verificar coincidencia (aciertos) letra en palabra
-    //for (const i in hideWord){
-      //if(leter == hideWord[i]){
-          //underscores = underscores.replaceAT(i*2, leter);
-      //}
-    //}
-    //alert(underscores);
-
-});
-
-// definiendo accion boton jugar
-var buttonStart = document.querySelector(".buttonStart").addEventListener("click",(event) => {
-    //event.preventDefault();
-    console.log("click Start");
-    hideWord = preterminedWords[Math.floor(Math.random()*preterminedWords.length)]; 
-    console.log(hideWord);
-    //remplazo letras por guiones en palabra oculta luego de click en boton start
-    underscores = hideWord.replace(/./g,"_ ");  
 });
 
 // funcion para agregar nuevas palabras y validacion de texto 
