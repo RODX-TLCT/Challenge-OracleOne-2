@@ -7,16 +7,17 @@ let lifes = 8;
 
 // capturar inputs 
 var AddWordsForm = document.querySelector(".newWordForm");
-
 var inputAddLeter = document.querySelector("#InputAddleter");
 
 //Definiendo la palabra al azar 
 var hideWord = preterminedWords[Math.floor(Math.random()*preterminedWords.length)];
-console.log(hideWord);
-
+let newWord= [];
+  for(i=0;i<hideWord.length;i++){
+    newWord.push("_");
+  }
+  
 //receptor guiones   
 let underscores = hideWord.replace(/./g,"_ ");
-
 
 // captura click y accion del boton agregar 
 var buttonAdd = document.querySelector(".buttonAdd").addEventListener("click",(event) => {
@@ -42,57 +43,48 @@ var buttonAddleter = document.querySelector(".buttonAddleter").addEventListener(
     //captura de letra y conversion a mayuscula
     let leter = document.querySelector('.InputAddleter ').value.toUpperCase();
     console.log(leter)
-
-    let newWord= "";
-
-    for (let i = 0; i < hideWord.length;i++){
-      if(leter == hideWord[i]) {
-        newWord = newWord + leter + " ";
-      }else{
-        newWord = newWord + underscores[i*2] + " ";
-      }
-    }
-    console.log(lifes);
-    console.log(newWord);
-
-    if(newWord == underscores){
-      lifes--;
-      console.log(lifes)
-    }
     
-    // definiendo acciones segun intentos restantes 
-    if (lifes == 7) {
-      vidaSiete();
-    }
-      
-    if (lifes == 6) {
-      vidaSeis();
-    }
+var count = false;
+  for (let i = 0; i < hideWord.length;i++){
+      if(leter == hideWord[i]) {
+        newWord[i] = leter;
+        count= true;
+      }
+  }
+  if (!count){
+    lifes--;
+  }
 
-    if (lifes == 5) {
-      vidaCinco();
-    }
+  document.querySelector('#output').innerHTML = newWord.join(" ");  
+  console.log(lifes);
+  console.log(newWord);
 
-    if (lifes == 4) {
-      vidaCuatro();
-    }
-
-    if (lifes == 3) {
-      vidaTres();
-    }
-
-    if (lifes == 2) {
-      vidaDos();
-    }
-
-    if (lifes == 1) {
-      vidaUno();
-    }
-
-    if (lifes == 0 ) {
-      console.log ("La palabre era : " + hideWord);
-      vidaCero();
-    }
+  // definiendo acciones segun intentos restantes 
+  if (lifes == 7) {
+    vidaSiete();
+  } 
+  if (lifes == 6) {
+    vidaSeis();
+  }
+  if (lifes == 5) {
+    vidaCinco();
+  }
+  if (lifes == 4) {
+    vidaCuatro();
+  }
+  if (lifes == 3) {
+    vidaTres();
+  }
+  if (lifes == 2) {
+    vidaDos();
+  }
+  if (lifes == 1) {
+    vidaUno();
+  }
+  if (lifes == 0 ) {
+    console.log ("La palabre era : " + hideWord);
+    vidaCero();
+  }
 });
 
 // funcion para agregar nuevas palabras y validacion de texto 
@@ -104,8 +96,4 @@ function addNewWords(AddWordsForm) {
     console.log(preterminedWords);
   }
 
-
-
-//alabraUsuario = nuevaPalabra;
-//document.getElementById("frase").innerHTML = palabraUsuario;
 
